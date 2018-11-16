@@ -1,0 +1,31 @@
+version: '2'
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /var/hosts:/etc/nginx/conf.d
+            - /var/www:/var/www
+            - /var/logs:/var/log/nginx
+        links:
+            - php
+    php:
+        # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
+        build: /var/images/php
+        # этот образ будет общаться с mysql
+        links:
+            - mysql
+        # монтируем директорию с проектами
+        volumes:
+            - /var/www:/var/www
+    mysql:
+        image: mysql:5.7
+        ports:
+            - "3706:3306"
+        volumes:
+            - /var/mysql:/var/lib/mysql
+        # задаем пароль для root пользователя
+        environment:
+            MYSQL_ROOT_PASSWORD: 123321
