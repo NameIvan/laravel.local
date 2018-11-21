@@ -1,0 +1,17 @@
+version: '2'
+services:
+    app:
+        image: node
+        container_name: node-server
+        build: /var/images/node
+        environment:
+            NODE_ENV: 'production'
+            APP_PORT: 3002
+        volumes:
+        - /var/www/node.local
+        working_dir: /var/www/node.local
+        command: "yarn start"
+        restart: "always"
+        ports:
+        - "3102:3002"
+
