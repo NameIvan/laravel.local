@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Roles
+Route::get('chat', 'ChatController@index');
