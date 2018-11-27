@@ -88,6 +88,8 @@
             const form = document.getElementById('form');
             const input = document.getElementById('input');
 
+            const ws = new WebSocket('ws://localhost:3000');
+
             function setStatus(value) {
                 status.innerHTML = value;
             }
@@ -99,12 +101,23 @@
                 messages.appendChild(li);
             }
 
-            /* my */
-            form.onsubmit = () => {
-                printMessage(input.value);
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+
+                ws.send(input.value);
                 input.value = '';
-                return false;
-            };
+            });
+
+            ws.onopen = () => setStatus('ONLINE');
+            ws.onclose = () => setStatus('DISCONNECTED');
+            ws.onmessage = response => printMessage(response.data);
+
+            // /* my */
+            // form.onsubmit = () => {
+            //     printMessage(input.value);
+            //     input.value = '';
+            //     return false;
+            // };
             /* end my */
         </script>
     </body>

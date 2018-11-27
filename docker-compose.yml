@@ -17,6 +17,7 @@ services:
         # этот образ будет общаться с mysql
         links:
             - mysql
+            - redis
         # монтируем директорию с проектами
         volumes:
             - /var/www:/var/www
@@ -29,3 +30,6 @@ services:
         # задаем пароль для root пользователя
         environment:
             MYSQL_ROOT_PASSWORD: 123321
+    redis:
+        image: redis:latest
+        command: redis-server --appendonly yes

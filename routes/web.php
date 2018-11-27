@@ -15,5 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Roles
+// Chat
 Route::get('chat', 'ChatController@index');
+
+// Redis
+Route::get('redis', 'RedisController@index');
+Route::get('redis/set', 'RedisController@set');
+Route::get('redis/get', 'RedisController@get');
