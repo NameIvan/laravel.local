@@ -22,3 +22,6 @@ Route::get('chat', 'ChatController@index');
 Route::get('redis', 'RedisController@index');
 Route::get('redis/set', 'RedisController@set');
 Route::get('redis/get', 'RedisController@get');
+
+// React
+Route::get('react', 'ReactController@index');
