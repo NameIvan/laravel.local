@@ -86,7 +86,7 @@
                     <a href="{{ url('/chat') }}">Chat</a>
                     <a href="{{ url('/redis') }}">Redis</a>
                     <a href="{{ url('/react') }}">React</a>
-                    <a href="https://forge.laravel.com">Forge</a>
+                    <a href="{{ url('/react/redux') }}">React redux</a>r
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>

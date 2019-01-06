@@ -9,4 +9,9 @@ class ReactController extends Controller
     {
         return view('back.react.index');
     }
+
+    public function redux()
+    {
+        return view('back.react.redux');
+    }
 }

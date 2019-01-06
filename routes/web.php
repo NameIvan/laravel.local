@@ -25,3 +25,8 @@ Route::get('redis/get', 'RedisController@get');
 
 // React
 Route::get('react', 'ReactController@index');
+Route::get('react/redux', 'ReactController@redux');
+
+//Track
+Route::get('track', 'TrackController@index');
+Route::post('track/store', 'TrackController@store');
