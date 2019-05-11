@@ -87,7 +87,7 @@
                     <a href="{{ url('/redis') }}">Redis</a>
                     <a href="{{ url('/react') }}">React</a>
                     <a href="{{ url('/react/redux') }}">React redux</a>r
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ url('/rabbit') }}">RabbitMq</a>
                 </div>
             </div>
         </div>

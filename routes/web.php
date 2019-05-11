@@ -23,6 +23,11 @@ Route::get('redis', 'RedisController@index');
 Route::get('redis/set', 'RedisController@set');
 Route::get('redis/get', 'RedisController@get');
 
+// Rabbit
+Route::get('rabbit', 'RabbitController@index');
+Route::get('rabbit/set', 'RabbitController@set');
+Route::get('rabbit/get', 'RabbitController@get');
+
 // React
 Route::get('react', 'ReactController@index');
 Route::get('react/redux', 'ReactController@redux');

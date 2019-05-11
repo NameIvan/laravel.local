@@ -18,6 +18,7 @@ services:
         links:
             - mysql
             - redis
+            - rabbitmq
         # монтируем директорию с проектами
         volumes:
             - /var/www:/var/www
@@ -33,3 +34,21 @@ services:
     redis:
         image: redis:latest
         command: redis-server --appendonly yes
+
+    rabbitmq:
+        image: rabbitmq:3.6.6
+        container_name: rabbitmq_1
+        environment:
+              RABBITMQ_ERLANG_COOKIE: hash
+              RABBITMQ_DEFAULT_USER: rabbitmq_user
+              RABBITMQ_DEFAULT_PASS: 123321
+              RABBITMQ_DEFAULT_VHOST: /
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        volumes:
+            - /var/rabbitmq:/var/lib/rabbitmq
+            - /var/logs/rabbitmq:/var/log/rabbitmq
+            - /var/images/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins
+        restart: "always"
+
